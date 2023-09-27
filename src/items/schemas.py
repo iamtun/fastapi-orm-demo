@@ -11,6 +11,8 @@ class ItemCreate(ItemBase):
 
 
 class Item(ItemBase):
-    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True)
     id: int
     owner_id: int
+
+    class Config:
+        from_attributes = True

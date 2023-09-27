@@ -9,6 +9,7 @@ engine = create_engine(
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+# used to define mapped classes
 Base = declarative_base()
 
 

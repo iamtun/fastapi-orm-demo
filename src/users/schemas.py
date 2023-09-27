@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from src.items.models import Item
+from src.items.schemas import Item
 
 
 class UserBase(BaseModel):
@@ -11,7 +11,9 @@ class UserCreate(UserBase):
 
 
 class User(UserBase):
-    model_config = ConfigDict(from_attributes=True, arbitrary_types_allowed=True)
     id: int
     is_active: bool
     items: list[Item] = []
+
+    class Config:
+        from_attributes = True
